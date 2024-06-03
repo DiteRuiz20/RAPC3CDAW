@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Array Methods</title>
+    </head>
+    <body>
+        <h1>Películas de Star Wars</h1>
+        <!-- Las películas se insertarán aquí -->
+        <ul id="listaPeliculas"></ul>
+        <button onclick="invertirOrden()">Invertir Orden</button>
+
+        <script>
+        const peliculas = [
+            "Star Wars: Episodio I - La amenaza fantasma",
+            "Star Wars: Episodio II - El ataque de los clones",
+            "Star Wars: Episodio III - La venganza de los Sith",
+            "Star Wars: Episodio IV - Una nueva esperanza",
+            "Star Wars: Episodio V - El imperio contraataca",
+            "Star Wars: Episodio VI - El retorno del Jedi",
+            "Star Wars: Episodio VII - El despertar de la Fuerza",
+            "Star Wars: Episodio VIII - Los últimos Jedi",
+            "Star Wars: Episodio IX - El ascenso de Skywalker"
+        ];
+
+        // Función para mostrar las películas en la lista
+        function mostrarPeliculas() {
+            const lista = document.getElementById('listaPeliculas');
+            // Limpiar la lista actual
+            lista.innerHTML = ''; 
+            peliculas.forEach(pelicula => {
+                const li = document.createElement('li');
+                li.textContent = pelicula;
+                lista.appendChild(li);
+            });
+        }
+
+        // Función para invertir el orden de las películas
+        function invertirOrden() {
+            peliculas.reverse();
+            mostrarPeliculas();
+        }
+
+        // Mostrar las películas al cargar la página
+        mostrarPeliculas();
+        </script>
+    </body>
+</html>
