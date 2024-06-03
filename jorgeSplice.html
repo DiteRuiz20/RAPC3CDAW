@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Array.splice()</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(104, 228, 197);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: rgb(34, 29, 29);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(206, 131, 206);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: rgb(245, 199, 114);
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .info {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .array-container {
+            background-color: rgb(219, 120, 137);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso del metodo splice() en Arrays</h1>
+    <div class="info">Este metodo cambia el contenido de un array eliminando elementos existentes y/o añadiendo nuevos elementos.</div>
+    <div class="array-container">
+        <p><strong>Original:</strong> "Este equipo trabaja duro y padrisimo"</p>
+    </div>
+    <button id="spliceButton">Usar Splice</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('spliceButton').addEventListener('click', function() {
+            const array = ["Este", "equipo", "trabaja", "duro", "y", "padrisimo"];
+            
+            const elementosEliminados = array.splice(3, 3, "chingo", "y", "con", "dedicacion");
+
+            document.getElementById('result').innerHTML = `
+                <p><strong>Array modificado:</strong> ${array.join(' ')}</p>
+                <p><strong>Elementos eliminados:</strong> ${elementosEliminados.join(' ')}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
