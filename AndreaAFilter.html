@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Mayores de Edad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e0e0e0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mayores de Edad</h1>
+        <label for="edades">Edades (separadas por comas):</label>
+        <input type="text" id="edades" placeholder="Ej: 17, 22, 16, 19, 21">
+        <button onclick="filtrarMayores()">Filtrar Mayores de Edad</button>
+        <ul id="listaMayores"></ul>
+    </div>
+
+    <script>
+        function filtrarMayores() {
+            const edadesInput = document.getElementById('edades').value.split(',');
+
+            let mayoresDeEdad = edadesInput.filter(function(edad) {
+                return Number(edad.trim()) >= 18;
+            });
+
+            const listaMayores = document.getElementById('listaMayores');
+
+            listaMayores.innerHTML = '';
+
+            mayoresDeEdad.forEach(function(edad) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${edad.trim()} años`;
+                listaMayores.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
